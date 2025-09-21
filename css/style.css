@@ -1,141 +1,144 @@
-
 body {
   font-family: 'Segoe UI', 'Arial', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #181a20 0%, #23243a 100%);
-  color: #e0e0e0;
+  background: radial-gradient(circle at center, #0b0c10 0%, #141623 50%, #0a0b14 100%);
+  color: #dcdcff;
   min-height: 100vh;
 }
 
-
+/* HEADER façon entité cosmique */
 header {
   text-align: center;
   padding: 2.5rem 1rem 2rem 1rem;
-  background: linear-gradient(90deg, #2e2e4d 0%, #3a1c71 100%);
+  background: linear-gradient(90deg, #1b0033 0%, #3a1c71 50%, #0d0d1f 100%);
   color: #fff;
-  box-shadow: 0 4px 24px 0 #000a, 0 1.5px 0 #3a1c71;
-  border-bottom: 2px solid #3a1c71;
+  box-shadow: 0 0 40px 5px #6e48aa88, inset 0 -2px 8px #00f0ff33;
+  border-bottom: 2px solid #6e48aa;
+  text-shadow: 0 0 12px #6e48aa, 0 0 24px #00f0ff;
 }
 
-
+/* FORM & LIST avec aura sombre */
 form, #feedbackList {
   max-width: 600px;
   margin: 2rem auto;
   padding: 1.5rem 1.2rem;
-  background: rgba(30, 32, 48, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 4px 32px 0 #0008, 0 1.5px 0 #3a1c71;
-  border: 1.5px solid #3a1c71;
+  background: rgba(15, 15, 28, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 0 24px #6e48aa44, inset 0 0 12px #00f0ff22;
+  border: 1.5px solid #6e48aa;
 }
 
-
+/* CARD style cristal sombre */
 #feedbackList .card {
-  border: 1.5px solid #3a1c71;
-  border-radius: 12px;
+  border: 1.5px solid #6e48aa;
+  border-radius: 14px;
   padding: 1.2rem 1rem 1rem 1rem;
   margin-bottom: 1.2rem;
-  background: linear-gradient(120deg, #23243a 80%, #3a1c71 100%);
-  box-shadow: 0 2px 16px 0 #0006;
+  background: linear-gradient(145deg, #141623 70%, #2b0a40 100%);
+  box-shadow: 0 0 18px #0008, 0 0 12px #6e48aa55;
   position: relative;
-  transition: box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 #feedbackList .card:hover {
-  box-shadow: 0 4px 32px 0 #3a1c71cc, 0 1.5px 0 #3a1c71;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 28px #6e48aa, 0 0 18px #00f0ff88;
 }
 
-
+/* INPUTS comme des gemmes */
 input, select, textarea {
   width: 100%;
-  padding: 0.85rem 1.2rem;
+  padding: 0.9rem 1.2rem;
   margin: 0.7rem 0 1.4rem 0;
-  border: 2px solid #3a1c71;
+  border: 2px solid #6e48aa;
   border-radius: 10px;
-  background: linear-gradient(90deg, #23243a 60%, #3a1c71 100%);
-  color: #e0e0e0;
+  background: linear-gradient(90deg, #1a1a2e 60%, #2b0a40 100%);
+  color: #e6e6ff;
   font-size: 1.08rem;
-  box-shadow: 0 2px 12px #3a1c7133, 0 1.5px 0 #3a1c71;
+  box-shadow: inset 0 0 12px #6e48aa33, 0 0 8px #00f0ff22;
   outline: none;
-  transition: box-shadow 0.2s, background 0.2s, border 0.2s;
-  font-family: 'Segoe UI', 'Arial', sans-serif;
+  transition: all 0.3s ease;
   letter-spacing: 0.5px;
 }
 
 input:focus, select:focus, textarea:focus {
-  background: linear-gradient(90deg, #2e2e4d 60%, #6e48aa 100%);
-  box-shadow: 0 0 0 3px #b8aaff99, 0 2px 12px #3a1c7133;
-  border: 2px solid #b8aaff;
+  background: linear-gradient(90deg, #2b0a40 40%, #6e48aa 100%);
+  box-shadow: 0 0 12px #6e48aa, 0 0 18px #00f0ffaa;
+  border: 2px solid #00f0ff;
 }
 
 input::placeholder, textarea::placeholder {
-  color: #b8aaffcc;
-  opacity: 1;
+  color: #9f84ffcc;
   font-style: italic;
   letter-spacing: 0.5px;
 }
 
+/* SUBMIT bouton = aura d'énergie */
 form button[type="submit"] {
   width: 100%;
   margin-top: 1.2rem;
   padding: 1rem 0;
   font-size: 1.15rem;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #6e48aa 0%, #3a1c71 100%);
+  border-radius: 12px;
+  background: linear-gradient(90deg, #6e48aa 0%, #00f0ff 100%);
   color: #fff;
   font-weight: bold;
   letter-spacing: 1.5px;
-  box-shadow: 0 2px 16px #3a1c71cc;
+  box-shadow: 0 0 20px #6e48aacc, 0 0 30px #00f0ff88;
   border: none;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  transition: all 0.2s ease-in-out;
 }
 
 form button[type="submit"]:hover {
-  background: linear-gradient(90deg, #3a1c71 0%, #6e48aa 100%);
-  box-shadow: 0 4px 32px #6e48aacc;
-  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(90deg, #00f0ff 0%, #6e48aa 100%);
+  box-shadow: 0 0 30px #00f0ffcc, 0 0 40px #6e48aa99;
+  transform: translateY(-2px) scale(1.05);
 }
 
+/* OTHER BUTTONS */
 button, .delete-btn {
   background: linear-gradient(90deg, #3a1c71 0%, #6e48aa 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.7rem 1.5rem;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 8px #0004;
+  box-shadow: 0 0 12px #0006, 0 0 16px #6e48aa55;
   margin-top: 0.5rem;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
 }
 
 button:hover, .delete-btn:hover {
-  background: linear-gradient(90deg, #6e48aa 0%, #3a1c71 100%);
-  box-shadow: 0 4px 16px #3a1c71cc;
-  transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(90deg, #6e48aa 0%, #00f0ff 100%);
+  box-shadow: 0 0 20px #6e48aa, 0 0 30px #00f0ff99;
+  transform: translateY(-2px) scale(1.06);
 }
 
+/* TEXTS */
 label {
   font-weight: bold;
-  color: #b8aaff;
+  color: #9f84ff;
   margin-top: 0.7rem;
   display: block;
+  text-shadow: 0 0 6px #6e48aa88;
 }
 
 h1, h2, h3 {
-  color: #b8aaff;
-  text-shadow: 0 2px 8px #3a1c71cc;
+  color: #9f84ff;
+  text-shadow: 0 0 12px #6e48aa, 0 0 24px #00f0ff66;
 }
 
+/* CONFIRMATION MSG */
 #confirmationMsg {
-  background: linear-gradient(90deg, #3a1c71 0%, #6e48aa 100%);
+  background: linear-gradient(90deg, #00f0ff 0%, #6e48aa 100%);
   color: #fff;
-  border-radius: 6px;
-  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
   margin: 1rem 0;
   text-align: center;
   font-weight: bold;
-  box-shadow: 0 2px 8px #0004;
+  box-shadow: 0 0 20px #00f0ffaa, 0 0 30px #6e48aa88;
   letter-spacing: 1px;
 }
