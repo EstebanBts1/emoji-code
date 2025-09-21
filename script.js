@@ -27,7 +27,28 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
   } else {
     addFeedbackCard(data[0]);
     form.reset();
+    showConfirmation();
+    document.getElementById("results-section").scrollIntoView({ behavior: "smooth" });
   }
+// Affiche un message de confirmation après l'envoi
+function showConfirmation() {
+  let msg = document.getElementById("confirmationMsg");
+  if (!msg) {
+    msg = document.createElement("div");
+    msg.id = "confirmationMsg";
+    msg.style.background = "#d4edda";
+    msg.style.color = "#155724";
+    msg.style.padding = "10px";
+    msg.style.margin = "10px 0";
+    msg.style.borderRadius = "5px";
+    msg.style.textAlign = "center";
+    msg.style.fontWeight = "bold";
+    document.getElementById("form-section").appendChild(msg);
+  }
+  msg.textContent = "Merci, ton avis a bien été envoyé !";
+  msg.style.display = "block";
+  setTimeout(() => { msg.style.display = "none"; }, 3000);
+}
 });
 
 // Charger les avis existants
