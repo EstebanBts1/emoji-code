@@ -72,7 +72,19 @@ function addFeedbackCard(feedback) {
     <p>Humeur : ${feedback.mood} | Note : ${feedback.rating}/5</p>
     <p>${feedback.comment || ""}</p>
     <small>${new Date(feedback.created_at).toLocaleString()}</small>
+    <button class="delete-btn" style="margin-top:8px;background:#f8d7da;color:#721c24;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;float:right;">Supprimer</button>
   `;
+  // Ajout du gestionnaire de suppression
+  card.querySelector(".delete-btn").addEventListener("click", async () => {
+    if (confirm("Supprimer ce message ?")) {
+      const { error } = await supabase.from("feedbacks").delete().eq("id", feedback.id);
+      if (!error) {
+        card.remove();
+      } else {
+        alert("Erreur lors de la suppression");
+      }
+    }
+  });
   list.prepend(card);
 }
 
