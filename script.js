@@ -68,24 +68,36 @@ function addFeedbackCard(feedback) {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-    <h3>${feedback.name} — ${feedback.session}</h3>
-    <p>Humeur : ${feedback.mood} | Note : ${feedback.rating}/5</p>
-    <p>${feedback.comment || ""}</p>
-    <small>${new Date(feedback.created_at).toLocaleString()}</small>
-    <button class="delete-btn" style="margin-top:8px;background:#f8d7da;color:#721c24;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;float:right;">Supprimer</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+      <div>
+        <h3 style="margin:0;">${feedback.name} — ${feedback.session}</h3>
+        <p style="margin:0;">Humeur : ${feedback.mood} | Note : ${feedback.rating}/5</p>
+        <p style="margin:0;">${feedback.comment || ""}</p>
+        <small>${new Date(feedback.created_at).toLocaleString()}</small>
+      </div>
+      <button class="delete-btn" style="background:#f8d7da;color:#721c24;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-weight:bold;">🗑️</button>
+    </div>
   `;
   // Ajout du gestionnaire de suppression
   card.querySelector(".delete-btn").addEventListener("click", async () => {
     if (confirm("Supprimer ce message ?")) {
       const { error } = await supabase.from("feedbacks").delete().eq("id", feedback.id);
       if (!error) {
-        card.remove();
+        await reloadFeedbacks();
       } else {
         alert("Erreur lors de la suppression");
       }
     }
   });
-  list.prepend(card);
+  list.appendChild(card);
+}
+
+
+// Recharge la liste des avis (utile après suppression)
+async function reloadFeedbacks() {
+  const list = document.getElementById("feedbackList");
+  list.innerHTML = "";
+  await loadFeedbacks();
 }
 
 loadFeedbacks();
